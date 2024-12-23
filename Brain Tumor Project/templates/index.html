@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brain Tumor Detection</title>
+    <style>
+      /* CSS Styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+        text-align: center;
+      }
+
+      .container {
+        margin: 50px auto;
+        max-width: 600px;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      input[type="file"] {
+        display: block;
+        margin: 10px auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #result {
+        margin-top: 20px;
+        display: none;
+      }
+
+      #result h2 {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Brain Tumor Detection</h1>
+      <p>Upload an MRI image to detect if a brain tumor is present.</p>
+      <form id="uploadForm">
+        <label for="file">Select MRI Image:</label>
+        <input type="file" name="file" id="file" accept="image/*" required />
+        <button type="submit">Predict</button>
+      </form>
+      <div id="result">
+        <h2>Prediction Result:</h2>
+        <p id="class"></p>
+        <p id="confidence"></p>
+      </div>
+    </div>
+    <script>
+      // JavaScript for handling file upload and prediction
+      document
+        .getElementById("uploadForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const fileInput = document.getElementById("file");
+          const file = fileInput.files[0];
+
+          if (!file) {
+            alert("Please select a file!");
+            return;
+          }
+
+          const formData = new FormData();
+          formData.append("file", file);
+
+          try {
+            const response = await fetch("/predict", {
+              method: "POST",
+              body: formData,
+            });
+
+            if (!response.ok) {
+              const errorData = await response.json();
+              alert("Error: " + (errorData.error || "Unknown error occurred"));
+              return;
+            }
+
+            const result = await response.json();
+            document.getElementById("result").style.display = "block";
+            document.getElementById("class").innerText =
+              "Class: " + result.class;
+            document.getElementById("confidence").innerText =
+              "Confidence: " + (result.confidence * 100).toFixed(2) + "%";
+          } catch (error) {
+            alert("An error occurred: " + error.message);
+          }
+        });
+    </script>
+  </body>
+</html>

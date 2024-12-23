@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "325867424702",
+    "project_id": "brain-tumor-36503",
+    "storage_bucket": "brain-tumor-36503.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:325867424702:android:08cd6b2fec5a41560e47ef",
+        "android_client_info": {
+          "package_name": "com.example.brain_tumor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3fE3ikY8BcEPWmMIXZTR8l6ApoeFrs6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
