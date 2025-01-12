@@ -1,7 +1,7 @@
 class MyText {
   static String appName = "Brain Tumor";
   static String app1 = "Detection System";
-  static String api = "192.168.1.9";
+  static String api = "192.168.1.8";
   static String basicUrl = 'http://$api:3000/predict';
   static String result = "Result: Please upload the Image";
 

@@ -96,13 +96,9 @@ class ImageStorageController extends GetxController {
         contentType: MediaType('image', 'jpeg'),
       ));
       final response = await request.send();
-      print(
-          "byyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy ${response.statusCode}");
       if (response.statusCode == 200) {
         final responseData = await http.Response.fromStream(response);
         final jsonResponse = jsonDecode(responseData.body);
-        print("000000000000 $jsonResponse");
-        print("111111111111111111111111111111111111111111111111111111111111");
         resultMessage.value =
             'Prediction: ${jsonResponse['class']}\n Confidence:${((jsonResponse['confidence'] as double) * 100).toStringAsFixed(2)}%';
         // this will store data into data into local data

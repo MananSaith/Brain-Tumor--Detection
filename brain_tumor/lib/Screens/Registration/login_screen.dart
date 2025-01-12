@@ -8,7 +8,7 @@ import '../../constant/routes_get.dart';
 import '../../controllers/firebase Auth/auth_controller.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({super.key});
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -96,7 +96,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return MyText.enterEmail;
+                            return 'Please enter your email address';
+                          } else if (!RegExp(
+                                  r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                              .hasMatch(value)) {
+                            return 'Please enter a valid email address';
                           }
                           return null;
                         },
@@ -129,9 +133,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                 BorderRadius.all(Radius.circular(30.0)),
                           ),
                         ),
-                        validator: (value) {
+                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return MyText.enterPassword;
+                            return 'Please enter a password';
+                          } else if (value.length < 6) {
+                            return 'Password must be at least 6 characters';
                           }
                           return null;
                         },
