@@ -25,9 +25,15 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
-        return windows;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for windows - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -41,48 +47,29 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBsj0ZaFCmMKljuuADSdZjXDAVBQD9k6YE',
-    appId: '1:325867424702:web:3ef411dd6994f8dd0e47ef',
-    messagingSenderId: '325867424702',
-    projectId: 'brain-tumor-36503',
-    authDomain: 'brain-tumor-36503.firebaseapp.com',
-    storageBucket: 'brain-tumor-36503.firebasestorage.app',
-    measurementId: 'G-7YTV42FWEV',
+    apiKey: 'AIzaSyCOdlj8R6TNqfz-7XPfsyzk0vNXBExUShs',
+    appId: '1:225480888681:web:6fd8236e2a26a6d71a6df8',
+    messagingSenderId: '225480888681',
+    projectId: 'brain-tumor-91861',
+    authDomain: 'brain-tumor-91861.firebaseapp.com',
+    storageBucket: 'brain-tumor-91861.firebasestorage.app',
+    measurementId: 'G-FYB3NRKHB5',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD3fE3ikY8BcEPWmMIXZTR8l6ApoeFrs6k',
-    appId: '1:325867424702:android:08cd6b2fec5a41560e47ef',
-    messagingSenderId: '325867424702',
-    projectId: 'brain-tumor-36503',
-    storageBucket: 'brain-tumor-36503.firebasestorage.app',
+    apiKey: 'AIzaSyAUmQhmPVeg71v875wxBXYXNQdCS5kHfbE',
+    appId: '1:225480888681:android:062bbeb2ce150e101a6df8',
+    messagingSenderId: '225480888681',
+    projectId: 'brain-tumor-91861',
+    storageBucket: 'brain-tumor-91861.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyB0tyePor77r8p2k8KX401wdKpTy8fE6tg',
-    appId: '1:325867424702:ios:06af2746d2fe4b390e47ef',
-    messagingSenderId: '325867424702',
-    projectId: 'brain-tumor-36503',
-    storageBucket: 'brain-tumor-36503.firebasestorage.app',
+    apiKey: 'AIzaSyAz-kOJhuQ21KSYx3licqVV5WarvjB5-jA',
+    appId: '1:225480888681:ios:e6347d49eb5438e41a6df8',
+    messagingSenderId: '225480888681',
+    projectId: 'brain-tumor-91861',
+    storageBucket: 'brain-tumor-91861.firebasestorage.app',
     iosBundleId: 'com.example.brainTumor',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyB0tyePor77r8p2k8KX401wdKpTy8fE6tg',
-    appId: '1:325867424702:ios:06af2746d2fe4b390e47ef',
-    messagingSenderId: '325867424702',
-    projectId: 'brain-tumor-36503',
-    storageBucket: 'brain-tumor-36503.firebasestorage.app',
-    iosBundleId: 'com.example.brainTumor',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBsj0ZaFCmMKljuuADSdZjXDAVBQD9k6YE',
-    appId: '1:325867424702:web:2cd09ba07de5c2190e47ef',
-    messagingSenderId: '325867424702',
-    projectId: 'brain-tumor-36503',
-    authDomain: 'brain-tumor-36503.firebaseapp.com',
-    storageBucket: 'brain-tumor-36503.firebasestorage.app',
-    measurementId: 'G-D74X1RXL7E',
   );
 }

@@ -89,4 +89,13 @@ def predict():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, host='192.168.1.8', port=3000)
+    app.run(debug=True, host='192.168.74.25', port=3000)
+
+
+# Note: Ensure you have the required HTML template (index.html) in the templates folder.
+# The HTML file should contain a form to upload images and display the results.
+# first open the project folder in terminal and run the command below to install the required packages(if need)
+# pip install -----------
+# then run the command below to start the flask server ((python app.py) or (flask run))
+# then open the browser and type the url below to access the web app
+#befor run ipconfigure the ip address and port number in the app.py file

@@ -16,6 +16,9 @@ class ImageStorageController extends GetxController {
   final picker = ImagePicker();
   XFile? pickFile;
   RxString resultMessage = MyText.result.obs;
+  RxString resultClass = "".obs;
+  RxDouble resultConfidence = 0.0.obs;
+
 
   void galleryCameraFun() {
     Get.bottomSheet(
@@ -99,6 +102,8 @@ class ImageStorageController extends GetxController {
       if (response.statusCode == 200) {
         final responseData = await http.Response.fromStream(response);
         final jsonResponse = jsonDecode(responseData.body);
+        resultClass.value =jsonResponse['class'];
+        resultConfidence.value =((jsonResponse['confidence'] as double) * 100);
         resultMessage.value =
             'Prediction: ${jsonResponse['class']}\n Confidence:${((jsonResponse['confidence'] as double) * 100).toStringAsFixed(2)}%';
         // this will store data into data into local data

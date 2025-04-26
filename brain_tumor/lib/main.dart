@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'Binding/auth_binding.dart';
-import 'Screens/Navigators/navigator_screen.dart';
+import 'Screens/Navigators/home_screen.dart';
 import 'Screens/Registration/email_verification_screen.dart';
 import 'Screens/Registration/forgetpasswordscreen.dart';
 import 'Screens/Registration/get_start_screen.dart';

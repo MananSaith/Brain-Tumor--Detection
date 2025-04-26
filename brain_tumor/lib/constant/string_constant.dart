@@ -1,7 +1,7 @@
 class MyText {
   static String appName = "Brain Tumor";
   static String app1 = "Detection System";
-  static String api = "192.168.1.8";
+  static String api = "192.168.74.25";
   static String basicUrl = 'http://$api:3000/predict';
   static String result = "Result: Please upload the Image";
 
@@ -27,8 +27,8 @@ class MyText {
   static String alert = "Please accept our Terms of Service & Privacy Policy";
 
   //home screen
-  static String line1 = "1. Upload a Brain scan image";
-  static String line2 = "2. Click \"Analyze\" to detect if a tumor is present";
+  static String line1 = "1. Upload a MRI Image to detect if a tumor is present";
+  static String line2 = "2. Click \"Analyze\" to fetch detail and Suggestion";
   static String analyze = "Analyze";
 
   //piks & icons paths
